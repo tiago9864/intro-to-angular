@@ -2,18 +2,19 @@
   angular.module('intro')
        .factory('TodoService', TodoService);
 
-  TodoService.$inject = [];
+  TodoService.$inject = ['$window'];
 
-  function TodoService(){
-    var data = [
+  function TodoService($window){
+    //var data = [
 
-      {  desc:'take a nap'}, //is a todo object instead of a todo string
-       {  desc: 'take another nap'},
-       {  desc:'get some milk'},
-      {  desc: 'win the lotto'}
+     // {  desc:'take a nap'}, //is a todo object instead of a todo string
+      // {  desc: 'take another nap'},
+       //{  desc:'get some milk'},
+      //{  desc: 'win the lotto'}
 
-    ];
-
+    //];
+    var data = JSON.parse($window.localStorage.getItem('data'));
+    console.log($window.localStorage);
 
     return {
       get: get,
@@ -30,9 +31,11 @@
 
     function create(description){
       data.push({desc: description});
+      $window.localStorage.setItem('data', JSON.stringify(data));
     }
     function update(index, newDescription){
       data.splice(index, 1, { desc: newDescription});
+       $window.localStorage.setItem('data', JSON.stringify(data));
 
     }
     function remove(index){

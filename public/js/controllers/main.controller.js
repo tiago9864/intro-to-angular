@@ -19,7 +19,7 @@
      function deleteTodo(index) {
         TodoService.delete(index);
      }
-     function editTodo(){
+     function editTodo(todo){
        todo.isBeingEdited = true;
      }
 

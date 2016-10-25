@@ -12,10 +12,10 @@
       <ul>
         <li ng-repeat='todo in todos track by $index'>
           <input type="text" ng-show='todo.isBeingEdited' ng-model='todo.desc'>
-          <span nggggghid='todo.isBeingEdited'> {{todo.desc}}</span>
+          <span ng-hide='todo.isBeingEdited'> {{todo.desc}}</span>
         <button ng-click ='deleteTodo($index)'>&times;</button>
-           <button ng-click ='editTodo(todo)'>Edit</button>
-          <button ng-click='saveTodo($index, todo)' ng-show ='todo.isBeingEdited'>Save </button>
+           <button ng-click ='editTodo(todo)' ng-hide='todo.isBeingEdited'>Edit</button>
+          <button ng-click='saveTodo($index, todo)' ng-show ='todo.isBeingEdited'>Save</button>
 
           </li>
       </ul>
