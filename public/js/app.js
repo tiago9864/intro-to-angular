@@ -1,14 +1,6 @@
  (function() {
 
 
-   angular.module('intro', [])
-       .controller('MainController', MainController);
+   angular.module('intro', []) //
 
-    MainController.$inject = ['$scope'];//what tools the Maincontroller function need
-
-   function MainController($scope){ // $scope is our bridge to the dom
-      console.log('Now Main Controlling..');
-     $scope.person = 'TIAGO';
-     $scope.letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-   }
  }());

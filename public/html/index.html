@@ -6,21 +6,23 @@
   <body>
     <div ng-controller="MainController">
       <!-- The following is an example of two -way data binding -->
-      <input type="text" ng-model='person'>
-      <button ng-click='saySurprise(person)'>Surprise!</button>
-       <h1>Hello! {{ person }}</h1>
+<input type="text" ng-model='newTodo'>
+      <button ng-click='createTodo(newTodo)'> Add new Todo </button>
 
-    <ul>
-      <li ng-repeat='letter in letters'> {{letter}}
-
-      </li>
-
+      <ul>
+        <li ng-repeat='todo in todos track by $index'>
+          <input type="text" ng-show='isEditing' ng-model='todo'>
+           {{todo.desc}}
+        <button ng-click='deleteTodo($index)'>&times;</button>
+          </li>
       </ul>
+
     </div>
-<h1>Hello! {{ person }}</h1>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
     <script src="js/app.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/controllers/main.controllers.js"> </script>
+    <script src="js/controllers/main.controller.js"> </script>
+    <script src="js/services/todo.service.js"> </script>
   </body>
 </html>
