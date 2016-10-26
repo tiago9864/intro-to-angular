@@ -23,7 +23,7 @@
        todo.isBeingEdited = true;
      }
 
-     function saveTodo(todo){
+     function saveTodo(index, todo){
 
        TodoService.update(index, todo.desc);
        todo.isBeingEdited = false;
